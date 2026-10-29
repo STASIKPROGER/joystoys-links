@@ -1,0 +1,25 @@
+# Раз в час пересобирает таплинк: витрины акции и «Распродажи дня» и цены DR.JOYS берутся с joystoys.kz
+name: build
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["site/**", "tools/build.py"]
+permissions:
+  contents: write
+concurrency: build
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Сборка
+        run: python3 tools/build.py
+      - name: Публикация, если что-то изменилось
+        run: |
+          git config user.name "joystoys-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs
+          git diff --cached --quiet || { git commit -m "Витрины: обновление с сайта" && git push; }

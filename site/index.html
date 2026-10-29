@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Joys Toys — секс-шоп в Алматы</title>
+<meta name="description" content="Секс-шоп Joys Toys: два магазина в Алматы и доставка по Казахстану. Акции, распродажа дня, заказ в WhatsApp.">
+<meta name="theme-color" content="#08033d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Joys Toys — игрушки для взрослых в Алматы">
+<meta property="og:description" content="Акции, распродажа дня, адреса магазинов и заказ в WhatsApp — всё в одном месте.">
+<meta property="og:image" content="{{BASE}}/assets/og.jpg">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta property="og:url" content="{{BASE}}/">
+<link rel="icon" href="assets/icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Rubik:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#FF0066;--pink-hi:#ff4d94;--navy:#000066;--bg:#08033d;--card:#140c5c;--card2:#1b1170;
+  --line:rgba(255,255,255,.1);--text:#fff;--muted:rgba(255,255,255,.66);
+  --display:Rubik,"Arial Black",system-ui,sans-serif;
+  --sans:Jost,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;
+  --r:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:400 15px/1.45 var(--sans);-webkit-font-smoothing:antialiased;
+  min-height:100vh;overflow-x:hidden}
+/* фон из значков логотипа: сердечки, кольца и кошачьи ушки */
+.pattern{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cg fill='none' stroke='%23FF0066' stroke-opacity='.09' stroke-width='3' stroke-linejoin='round'%3E%3Cpath d='M30 44c-8-6-14-11-14-18 0-5 4-8 8-8 3 0 5 2 6 4 1-2 3-4 6-4 4 0 8 3 8 8 0 7-6 12-14 18Z'/%3E%3Ccircle cx='112' cy='34' r='9'/%3E%3Ccircle cx='96' cy='52' r='5'/%3E%3Cpath d='M86 118l8-22 12 14h14l12-14 8 22'/%3E%3Cpath d='M22 112c6 4 14 4 20 0'/%3E%3C/g%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:480px;margin:0 auto;padding:0 16px calc(28px + env(safe-area-inset-bottom));position:relative;z-index:1}
+
+/* наклейки, как буквы в логотипе: белая плашка в синей обводке с розовой тенью */
+.tag{display:inline-block;font:900 13px/1 var(--display);text-transform:uppercase;letter-spacing:.02em;padding:7px 10px 6px;
+  background:#fff;color:var(--navy);border:2px solid var(--navy);border-radius:8px;box-shadow:3px 3px 0 var(--pink);white-space:nowrap}
+.tag.pink{background:var(--pink);color:#fff;box-shadow:3px 3px 0 var(--navy)}
+.tilt-l{--r:-3deg;transform:rotate(-3deg)}
+.tilt-r{--r:2.5deg;transform:rotate(2.5deg)}
+/* надписи-наклейки: белые буквы с розовой «тенью-обводкой» */
+.st{font:900 30px/.95 var(--display);text-transform:uppercase;letter-spacing:-.01em;color:#fff;text-shadow:3px 3px 0 var(--pink)}
+
+/* кошачьи ушки — изюминка логотипа — у главных карточек */
+.eared{position:relative;margin-top:20px}
+.eared::before{content:"";position:absolute;left:24px;top:-17px;width:78px;height:19px;background:var(--ear,var(--pink));
+  clip-path:polygon(0 100%,15% 0,42% 100%,58% 100%,85% 0,100% 100%);transform-origin:50% 100%}
+
+/* шапка */
+.hero{text-align:center;padding:36px 0 18px}
+.hero .logo{width:min(290px,78vw);height:auto;display:block;margin:0 auto 22px;
+  filter:drop-shadow(0 0 0 #fff) drop-shadow(2.5px 0 0 #fff) drop-shadow(-2.5px 0 0 #fff) drop-shadow(0 2.5px 0 #fff) drop-shadow(0 -2.5px 0 #fff) drop-shadow(0 14px 22px rgba(255,0,102,.35))}
+.hero h1{font:900 clamp(25px,8vw,36px)/.98 var(--display);text-transform:uppercase;letter-spacing:-.01em;text-shadow:3px 3px 0 var(--pink)}
+.hero .tag{margin-top:12px;font-size:14px}
+.hero p{color:var(--muted);margin:18px auto 0;max-width:340px;font-size:15.5px}
+
+/* главная кнопка — в магазин */
+.go-shop{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,var(--pink),#ff2d82);border-radius:var(--r);
+  padding:16px;position:relative;overflow:visible;--ear:#ff1a75;box-shadow:0 14px 34px -12px rgba(255,0,102,.75);transition:transform .15s}
+.go-shop:active{transform:scale(.98)}
+.go-shop .ico{flex:none;width:56px;height:56px;border-radius:18px;background:#fff;display:grid;place-items:center;transform:rotate(-4deg)}
+.go-shop .ico img{width:44px;height:44px}
+.go-shop b{display:block;font:900 18px/1.05 var(--display);text-transform:uppercase}
+.go-shop small{display:block;font-size:13.5px;color:rgba(255,255,255,.9);margin-top:5px;line-height:1.3}
+.go-shop .go{margin-left:auto}
+.shine{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none}
+.shine::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);animation:sheen 3.8s ease-in-out infinite}
+@keyframes sheen{0%,20%{transform:translateX(-130%)}65%,100%{transform:translateX(330%)}}
+.go{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center}
+.go svg{width:14px;height:14px}
+.go-shop .go svg{animation:nudge 1.9s ease-in-out infinite}
+@keyframes nudge{0%,55%,100%{transform:none}70%{transform:translateX(4px)}85%{transform:translateX(-1px)}}
+
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 30px}
+.quick a{display:flex;align-items:center;gap:10px;height:58px;padding:0 14px;border-radius:18px;background:var(--card);
+  border:1px solid var(--line);font:800 15px/1.1 var(--display);transition:transform .15s}
+.quick a:active{transform:scale(.97)}
+.quick svg{flex:none;width:26px;height:26px}
+.quick small{display:block;font:500 12px/1.2 var(--sans);color:var(--muted);margin-top:2px}
+.quick .wa{background:#fff;color:var(--navy);border-color:#fff}
+.quick .wa small{color:rgba(0,0,102,.6)}
+
+/* заголовок раздела */
+.sec{display:flex;align-items:flex-end;flex-wrap:wrap;gap:10px 12px;margin:0 0 14px}
+.sec .tag{margin-bottom:3px}
+
+/* витрины с сайта: акция и распродажа дня */
+.show{border-radius:var(--r);padding:16px 0 16px;margin-bottom:26px;position:relative}
+.show .head{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:0 16px}
+.show h2{font:900 22px/1.05 var(--display);color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.18);display:flex;align-items:center;gap:8px}
+.show .timer{background:rgba(0,0,102,.9);color:#fff;font:700 13px/1 var(--sans);padding:7px 10px;border-radius:10px;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.show .sub{padding:8px 16px 0;font-size:13.5px;color:rgba(255,255,255,.92);line-height:1.35}
+.show .all{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 16px 0;height:44px;border-radius:14px;
+  background:rgba(255,255,255,.18);font:700 14.5px/1 var(--sans);border:1.5px solid rgba(255,255,255,.5)}
+.show .all svg{width:12px;height:12px}
+.promo{background:linear-gradient(140deg,var(--pa,#ff8a00),var(--pb,#ff4d1a));--ear:var(--pa,#ff8a00)}
+.sale{background:linear-gradient(140deg,#ff0066,#ff3d8b 60%,#ff6aa8);--ear:#ff0066}
+
+.rail{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 16px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail::-webkit-scrollbar{display:none}
+.pc{flex:0 0 152px;scroll-snap-align:start;scroll-margin-left:16px;background:#fff;color:var(--navy);border-radius:18px;padding:9px 9px 10px;
+  position:relative;display:flex;flex-direction:column;box-shadow:0 10px 22px -12px rgba(0,0,0,.45);transition:transform .15s}
+.pc:active{transform:scale(.97)}
+.pc .img{display:block;aspect-ratio:1/1;border-radius:12px;background:#f6f3fa center/contain no-repeat}
+.pc .badge{position:absolute;top:14px;left:14px;background:var(--pink);color:#fff;font:800 12px/1 var(--sans);padding:5px 8px;border-radius:20px;z-index:1}
+.pc .ic{position:absolute;top:11px;right:13px;font-size:17px;z-index:1}
+.pc .nm{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:500 12.5px/1.3 var(--sans);margin:8px 0 6px;min-height:33px}
+.pc .pr{margin-top:auto;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 6px}
+.pc .new{color:var(--pink);font:800 16px/1.1 var(--sans)}
+.pc .old{color:#9a96b2;font-size:12px;text-decoration:line-through}
+.pc .buy{margin-top:8px;height:32px;border-radius:10px;background:var(--navy);color:#fff;font:700 13px/32px var(--sans);text-align:center}
+.pc.more{justify-content:center;align-items:center;text-align:center;gap:10px;background:rgba(255,255,255,.16);color:#fff;
+  border:2px dashed rgba(255,255,255,.6);box-shadow:none;font:800 15px/1.2 var(--display)}
+.pc.more .go{width:44px;height:44px}
+
+/* наш бренд DR.JOYS — блоки из его таплинка в цветах Joys Toys */
+.brand-intro{color:var(--muted);font-size:14.5px;margin:-4px 0 14px}
+.card{position:relative;border-radius:var(--r);overflow:hidden;margin-bottom:12px;min-height:250px;display:flex;flex-direction:column;padding:18px}
+.card .pic{position:absolute;top:0;right:0;width:46%;height:100%;object-fit:cover}
+.card .body{position:relative;z-index:1;max-width:58%;flex:1}
+.card .badge{margin-bottom:14px}
+.card h3{font:900 19px/1.02 var(--display);text-transform:uppercase;margin-bottom:8px}
+.card p{font-size:13.5px;line-height:1.35}
+.card .btns{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:44px;padding:0 12px;border-radius:999px;
+  font:700 14px/1 var(--sans);white-space:nowrap;transition:transform .15s}
+.btn:active{transform:scale(.95)}
+.btn svg{width:12px;height:12px}
+.btn.solid{background:#fff;color:var(--navy)}
+.btn.pink{background:var(--pink);color:#fff}
+.btn.navy{background:var(--navy);color:#fff}
+.btn.line{border:1.5px solid currentColor}
+.neon{background:radial-gradient(120% 90% at 85% 40%,rgba(141,255,63,.28),transparent 55%),#050805}
+.neon .pic{-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
+.neon h3{text-shadow:0 0 22px rgba(141,255,63,.35);animation:flicker 4.5s linear infinite}
+.neon p{color:rgba(255,255,255,.75)}
+.neon .chip{color:#8dff3f;animation:neonc 2.6s ease-in-out infinite}
+.neon .btn.line{background:rgba(5,8,5,.88);border-color:rgba(141,255,63,.75);color:#fff}
+.neon::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;mix-blend-mode:screen;
+  background:radial-gradient(55% 75% at 78% 50%,rgba(141,255,63,.38),transparent 62%);animation:breathe 2.6s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes flicker{0%,17%,19.5%,22%,100%{opacity:1}18%,21%{opacity:.45}}
+@keyframes neonc{50%{text-shadow:0 0 12px rgba(141,255,63,.9)}}
+.condoms{background:#fff;color:var(--navy)}
+.condoms .pic{width:38%;height:calc(100% - 76px);object-fit:contain;object-position:center;padding:16px 8px 0 0;
+  transform-origin:50% 90%;animation:sway 3.6s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(3deg) translateY(-6px)}}
+.condoms p{color:rgba(0,0,102,.7)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.mini{border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;background:var(--mb)}
+.mini.berry{--mb:#e8005d}
+.mini.aqua{--mb:#1b1170}
+.mini .ph{position:relative}
+.mini img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
+.mini .in{padding:12px 12px 14px;margin-top:-34px;position:relative;background:linear-gradient(180deg,transparent,var(--mb) 34px);
+  display:flex;flex-direction:column;flex:1}
+.mini h3{font:900 13.5px/1.05 var(--display);text-transform:uppercase;margin:24px 0 5px}
+.mini p{font-size:12.5px;color:rgba(255,255,255,.85);margin-bottom:11px;line-height:1.3}
+.mini .btn{height:38px;font-size:13.5px;margin-top:auto}
+.drip{position:absolute;right:9px;bottom:-6px;width:12px;height:15px;z-index:2;border-radius:50% 50% 50% 50%/62% 62% 40% 40%;
+  transform-origin:50% 0;animation:drip 2.6s ease-in infinite}
+.drip::after{content:"";position:absolute;left:3px;top:4px;width:3px;height:5px;border-radius:50%;background:rgba(255,255,255,.85)}
+.berry .drip{background:radial-gradient(circle at 40% 35%,#ffc2d4,#ff5f8f 70%)}
+.aqua .drip{background:radial-gradient(circle at 40% 35%,#fff,#cfe3ff 75%)}
+@keyframes drip{0%{transform:translateY(-6px) scale(.2,.1);opacity:0}25%{transform:translateY(0) scale(.7,.6);opacity:1}
+  45%{transform:translateY(2px) scale(.9,1.15)}75%{transform:translateY(34px) scale(.8,1.05);opacity:1}100%{transform:translateY(52px) scale(.6);opacity:0}}
+.drj{display:flex;align-items:center;gap:14px;background:#0d0d0d;border:1px solid rgba(255,255,255,.12);border-radius:var(--r);
+  padding:14px 14px 14px 16px;margin-bottom:30px}
+.drj img{width:58px;height:auto}
+.drj span{font-size:13.5px;color:var(--muted);line-height:1.3}
+.drj b{display:block;color:#fff;font:800 15px/1.2 var(--display)}
+.drj .go{margin-left:auto}
+
+/* магазины */
+.shops{display:grid;gap:10px;margin-bottom:30px}
+.shop{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.shop h3{font:900 19px/1.1 var(--display);display:flex;align-items:center;gap:8px}
+.shop h3 i{font-style:normal;width:26px;height:26px;border-radius:9px;background:var(--pink);display:grid;place-items:center;font-size:14px}
+.shop p{color:var(--muted);font-size:13.5px;margin:6px 0 12px}
+.shop .open{color:#7dffb2;font-weight:600}
+.shop .btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.shop .btn{height:40px;font-size:13.5px;padding:0 8px}
+
+/* опт и франшиза */
+.biz{border-radius:var(--r);padding:22px 18px 18px;margin-bottom:30px;--ear:#2b1a99;
+  background:radial-gradient(90% 120% at 100% 0%,rgba(255,0,102,.55),transparent 60%),linear-gradient(160deg,#2b1a99,#000066)}
+.biz .tag{margin-bottom:14px}
+.biz h3{font:900 28px/.95 var(--display);text-transform:uppercase;text-shadow:3px 3px 0 var(--pink)}
+.biz p{color:rgba(255,255,255,.85);font-size:14.5px;margin:12px 0 16px}
+.biz .btn{width:100%;height:52px;font-size:15px}
+.biz .btn + .btn{margin-top:8px}
+.biz .who{display:block;font:500 12.5px/1.2 var(--sans);opacity:.85;margin-top:3px}
+.biz .btn.pink{flex-direction:column;gap:0;height:58px}
+
+/* подвал */
+.site{display:flex;align-items:center;gap:14px;background:#fff;color:var(--navy);border-radius:var(--r);padding:12px 14px 12px 16px;margin-bottom:22px}
+.site img{width:120px;height:auto}
+.site span{font:700 14px/1 var(--sans);margin-left:auto}
+.social{display:flex;justify-content:center;gap:10px;margin-bottom:22px}
+.social a{width:48px;height:48px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;transition:transform .15s}
+.social a:active{transform:scale(.92)}
+.social svg{width:21px;height:21px}
+.foot{text-align:center;color:rgba(255,255,255,.42);font-size:12px}
+.foot b{display:inline-block;border:1px solid rgba(255,255,255,.3);border-radius:6px;padding:1px 5px;margin-right:6px;color:rgba(255,255,255,.6);font-weight:600}
+
+/* ---------- анимации ---------- */
+.js .tag.pop{opacity:0}
+.js .tag.pop.in{animation:slap .5s cubic-bezier(.2,1.5,.4,1) forwards}
+@keyframes slap{0%{opacity:0;transform:scale(1.7) rotate(calc(var(--r,0deg) - 6deg))}55%{opacity:1}100%{opacity:1;transform:scale(1) rotate(var(--r,0deg))}}
+.js .reveal{opacity:0;transform:translateY(26px)}
+.js .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.go-shop{animation:glow 2.8s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 14px 34px -12px rgba(255,0,102,.55)}50%{box-shadow:0 16px 46px -8px rgba(255,0,102,.95)}}
+/* ушки подёргиваются, как у кошки */
+.eared::before{animation:twitch 5s ease-in-out infinite}
+@keyframes twitch{0%,86%,100%{transform:none}89%{transform:scaleY(.82) rotate(-2deg)}92%{transform:none}95%{transform:scaleY(.86) rotate(2deg)}}
+.hero .logo{animation:bob 4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-6px) rotate(1deg)}}
+.float{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.float i{position:absolute;bottom:-70px;left:var(--x);width:var(--s);height:var(--s);opacity:var(--o);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF0066' d='M12 21c-5.6-4.1-9.5-7.5-9.5-11.6C2.5 6.2 4.8 4 7.6 4c1.9 0 3.5 1 4.4 2.6C12.9 5 14.5 4 16.4 4c2.8 0 5.1 2.2 5.1 5.4 0 4.1-3.9 7.5-9.5 11.6Z'/%3E%3C/svg%3E") center/contain no-repeat;
+  animation:rise var(--d) linear var(--dl) infinite}
+@keyframes rise{0%{transform:translateY(0) rotate(0)}50%{transform:translate(18px,-55vh) rotate(var(--rot))}100%{transform:translate(-6px,calc(-100vh - 140px)) rotate(0)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.js .reveal,.js .tag.pop{opacity:1;transform:none}}
+</style>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body class="pattern">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 14 14"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2a9.7 9.7 0 0 0-8.4 14.6L2.2 21.8l5.1-1.3A9.7 9.7 0 1 0 12 2.2Zm0 17.7c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9Zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8.9c-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3c-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.6 4.1 3.6 2 .8 2.4.6 2.8.6.5 0 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2Z"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></symbol>
+</svg>
+<div class="float" aria-hidden="true">
+  <i style="--x:6%;--s:20px;--o:.32;--d:19s;--dl:-2s;--rot:25deg"></i>
+  <i style="--x:22%;--s:13px;--o:.24;--d:15s;--dl:-9s;--rot:-30deg"></i>
+  <i style="--x:38%;--s:26px;--o:.18;--d:23s;--dl:-14s;--rot:18deg"></i>
+  <i style="--x:55%;--s:15px;--o:.28;--d:17s;--dl:-5s;--rot:-22deg"></i>
+  <i style="--x:70%;--s:22px;--o:.2;--d:21s;--dl:-17s;--rot:30deg"></i>
+  <i style="--x:84%;--s:12px;--o:.3;--d:14s;--dl:-1s;--rot:-18deg"></i>
+  <i style="--x:93%;--s:18px;--o:.2;--d:25s;--dl:-11s;--rot:24deg"></i>
+</div>
+<main class="wrap">
+
+  <header class="hero">
+    <img class="logo" src="assets/logo.png" alt="Joys Toys" width="1000" height="329">
+    <h1>Игрушки<br>для взрослых</h1>
+    <span class="tag pink tilt-l">Алматы · Казахстан</span>
+    <p>Два магазина в Алматы и доставка по всему Казахстану. Упакуем так, что никто не узнает, что внутри.</p>
+  </header>
+
+  <a class="go-shop eared" href="{{SITE}}/?{{UTM}}main">
+    <span class="shine" aria-hidden="true"></span>
+    <span class="ico"><img src="assets/icon-180.png" alt="" width="44" height="44"></span>
+    <span><b>Перейти в магазин</b><small>joystoys.kz · {{TOTAL}} в наличии</small></span>
+    <span class="go"><svg><use href="#arr"/></svg></span>
+  </a>
+  <nav class="quick">
+    <a class="wa" href="{{WA_SHOP}}"><svg style="color:#25d366"><use href="#wa"/></svg><span>WhatsApp<small>заказ и вопросы</small></span></a>
+    <a href="#shops"><svg style="color:var(--pink)"><use href="#pin"/></svg><span>Адреса<small>2 магазина</small></span></a>
+  </nav>
+
+{{PROMO}}
+{{SALE}}
+
+  <div class="sec"><h2 class="st">Наш бренд</h2><span class="tag tilt-r">попробуй DR.JOYS</span></div>
+  <p class="brand-intro">Собственный бренд Joys Toys: ультратонкие презервативы и лубриканты, которые мы советуем первыми.</p>
+
+  <article class="card neon">
+    <img class="pic" src="assets/neon.jpg" alt="Неоновый лубрикант DR.JOYS" width="692" height="720" loading="lazy">
+    <div class="body">
+      <span class="tag pink badge tilt-l">Новинка</span>
+      <h3>Неоновый лубрикант</h3>
+      <p><span class="chip">Светится в&nbsp;темноте</span> · pH&nbsp;4.2 · 100&nbsp;мл · на&nbsp;водной основе</p>
+    </div>
+    <div class="btns">
+      <a class="btn solid" href="{{SITE}}/product/lubrikant-svetyaschiysya-neonovyy-100-ml-dr-joys?{{UTM}}drjoys">{{P_NEON}} <svg><use href="#arr"/></svg></a>
+      <a class="btn line" href="{{WA_NEON}}">WhatsApp <svg><use href="#arr"/></svg></a>
+    </div>
+  </article>
+
+  <article class="card condoms">
+    <img class="pic" src="assets/condoms.jpg" alt="Презервативы DR.JOYS" width="386" height="720" loading="lazy">
+    <div class="body">
+      <span class="tag pink badge tilt-l">0.02 мм</span>
+      <h3>Ультра-<br>тонкие</h3>
+      <p>Презервативы, неощутимые на&nbsp;95%. Классика, точечные, со&nbsp;вкусом — по&nbsp;5, 17 и&nbsp;34&nbsp;шт.</p>
+    </div>
+    <div class="btns">
+      <a class="btn navy" href="{{SITE}}/collection/dr-joys?{{UTM}}drjoys">Все виды <svg><use href="#arr"/></svg></a>
+      <a class="btn line" href="{{SITE}}/product/prezervativy-drjoys-klassicheskie?{{UTM}}drjoys">от {{P_CONDOMS}}</a>
+    </div>
+  </article>
+
+  <div class="duo">
+    <article class="mini berry">
+      <div class="ph"><img src="assets/berry.jpg" alt="Лубрикант DR.JOYS со вкусом клубники" width="600" height="577" loading="lazy"><span class="drip" aria-hidden="true"></span></div>
+      <div class="in">
+        <h3>Клубничный лубрикант</h3>
+        <p>Съедобный · 200&nbsp;мл</p>
+        <a class="btn solid" href="{{SITE}}/product/lubrikant-dr-joys-200-ml-klubnika?{{UTM}}drjoys">{{P_BERRY}} <svg><use href="#arr"/></svg></a>
+      </div>
+    </article>
+    <article class="mini aqua">
+      <div class="ph"><img src="assets/aqua.jpg" alt="Лубрикант DR.JOYS на водной основе" width="600" height="577" loading="lazy"><span class="drip" aria-hidden="true"></span></div>
+      <div class="in">
+        <h3>На водной основе</h3>
+        <p>Классический · 200&nbsp;мл</p>
+        <a class="btn solid" href="{{SITE}}/product/lubrikant-dr-joys-200-ml-klassika?{{UTM}}drjoys">{{P_AQUA}} <svg><use href="#arr"/></svg></a>
+      </div>
+    </article>
+  </div>
+
+  <a class="drj" href="https://go.dr-joys.com/">
+    <img src="assets/drjoys-logo.svg" alt="DR.JOYS" width="58" height="44" loading="lazy">
+    <span><b>Всё о DR.JOYS</b>игра для пар, где ещё купить</span>
+    <span class="go"><svg><use href="#arr"/></svg></span>
+  </a>
+
+  <div class="sec" id="shops"><h2 class="st">Магазины</h2><span class="tag pink tilt-r">ежедневно 11–23</span></div>
+  <div class="shops">
+    <article class="shop">
+      <h3><i>📍</i>Байтурсынова 169</h3>
+      <p>угол Тимирязева · <span class="open">11:00–23:00</span> · +7 701 110-00-66</p>
+      <div class="btns">
+        <a class="btn pink" href="https://2gis.kz/almaty/firm/70000001046171412">2ГИС</a>
+        <a class="btn line" href="https://yandex.kz/maps/org/36263601865/">Яндекс</a>
+        <a class="btn line" href="tel:+77011100066">Звонок</a>
+      </div>
+    </article>
+    <article class="shop">
+      <h3><i>📍</i>Кунаева 49, 2 этаж</h3>
+      <p>Алматы · <span class="open">11:00–23:00</span> · +7 708 951-94-79</p>
+      <div class="btns">
+        <a class="btn pink" href="https://2gis.kz/almaty/firm/70000001091840589">2ГИС</a>
+        <a class="btn line" href="https://yandex.kz/maps/org/102585910450/">Яндекс</a>
+        <a class="btn line" href="tel:+77089519479">Звонок</a>
+      </div>
+    </article>
+  </div>
+
+  <section class="biz eared">
+    <span class="tag tilt-l">Для бизнеса</span>
+    <h3>Опт<br>и франшиза</h3>
+    <p>Есть магазин или планируете открыть свой? Обсудим индивидуальные условия опта и франшизы Joys Toys — на взаимовыгодных условиях. Пишите!</p>
+    <a class="btn pink" href="{{WA_KATYA}}"><span><svg style="width:18px;height:18px;vertical-align:-3px"><use href="#wa"/></svg> Написать Екатерине</span><span class="who">оптовый менеджер · +7 701 124-45-96</span></a>
+    <a class="btn line" href="{{SITE}}/page/opt?{{UTM}}opt">Условия опта на сайте <svg><use href="#arr"/></svg></a>
+  </section>
+
+  <a class="site" href="{{SITE}}/?{{UTM}}footer">
+    <img src="assets/logo.png" alt="Joys Toys" width="120" height="39" loading="lazy">
+    <span>joystoys.kz</span>
+    <span class="go"><svg><use href="#arr"/></svg></span>
+  </a>
+
+  <nav class="social" aria-label="Соцсети">
+    <a href="https://www.instagram.com/joystoys.kz/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="#fff" stroke="none"/></svg></a>
+    <a href="https://t.me/joystoys_sexshop" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="#fff"><path d="M21.4 4.2 2.9 11.3c-1 .4-1 1.6 0 1.9l4.6 1.4 1.8 5.5c.2.7 1.1.9 1.6.4l2.6-2.4 4.7 3.4c.6.4 1.4.1 1.6-.6L22.8 5.6c.2-1-.6-1.8-1.4-1.4Zm-3.6 3.6-8.3 7.4-.3 3.1-1.4-4.4 9.6-6.3c.3-.2.6.1.4.2Z"/></svg></a>
+    <a href="{{WA_SHOP}}" aria-label="WhatsApp"><svg style="color:#fff"><use href="#wa"/></svg></a>
+  </nav>
+
+  <p class="foot"><b>18+</b>Товары для взрослых · © Joys Toys</p>
+</main>
+<script>
+// наклейки и карточки появляются, когда долистали до них; таймеры акций
+(function () {
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, {threshold: 0, rootMargin: "0px 0px -8% 0px"});
+    document.querySelectorAll(".card,.duo .mini,.show,.shop,.biz,.drj,.site").forEach(function (el) { el.classList.add("reveal"); io.observe(el); });
+    document.querySelectorAll(".tag").forEach(function (el) { el.classList.add("pop"); io.observe(el); });
+  } else document.documentElement.classList.remove("js");
+  var ts = document.querySelectorAll("[data-end]");
+  function pad(n) { return ("0" + n).slice(-2); }
+  function tick() {
+    ts.forEach(function (t) {
+      var s = Math.max(0, Math.floor((new Date(t.getAttribute("data-end")).getTime() - Date.now()) / 1000));
+      var d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60);
+      t.textContent = "до конца: " + (d ? d + " д " : "") + pad(h) + ":" + pad(m) + ":" + pad(s % 60);
+    });
+  }
+  if (ts.length) { tick(); setInterval(tick, 1000); }
+})();
+</script>
+</body>
+</html>
