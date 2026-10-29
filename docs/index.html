@@ -7,7 +7,7 @@
 <meta name="description" content="Секс-шоп Joys Toys: два магазина в Алматы и доставка по Казахстану. Акции, распродажа дня, заказ в WhatsApp.">
 <meta name="theme-color" content="#08033d">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Joys Toys — игрушки для взрослых в Алматы">
+<meta property="og:title" content="Joys Toys — взрослые тоже играют">
 <meta property="og:description" content="Акции, распродажа дня, адреса магазинов и заказ в WhatsApp — всё в одном месте.">
 <meta property="og:image" content="https://go.joystoys.kz/assets/og.jpg">
 <meta property="og:image:width" content="1080">
@@ -44,10 +44,6 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
 /* надписи-наклейки: белые буквы с розовой «тенью-обводкой» */
 .st{font:900 30px/.95 var(--display);text-transform:uppercase;letter-spacing:-.01em;color:#fff;text-shadow:3px 3px 0 var(--pink)}
 
-/* кошачьи ушки — изюминка логотипа — у главных карточек */
-.eared{position:relative;margin-top:20px}
-.eared::before{content:"";position:absolute;left:24px;top:-17px;width:78px;height:19px;background:var(--ear,var(--pink));
-  clip-path:polygon(0 100%,15% 0,42% 100%,58% 100%,85% 0,100% 100%);transform-origin:50% 100%}
 
 /* шапка */
 .hero{text-align:center;padding:36px 0 18px}
@@ -89,34 +85,36 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
 .sec .tag{margin-bottom:3px}
 
 /* витрины с сайта: акция и распродажа дня */
-.show{border-radius:var(--r);padding:16px 0 16px;margin-bottom:26px;position:relative}
-.show .head{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:0 16px}
-.show h2{font:900 22px/1.05 var(--display);color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.18);display:flex;align-items:center;gap:8px}
-.show .timer{background:rgba(0,0,102,.9);color:#fff;font:700 13px/1 var(--sans);padding:7px 10px;border-radius:10px;
+.show{border-radius:20px;padding:12px 0;margin-bottom:20px;position:relative}
+.show .head{display:flex;align-items:center;flex-wrap:wrap;gap:6px 8px;padding:0 14px}
+.show h2{font:900 18px/1.1 var(--display);color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.18);display:flex;align-items:center;gap:6px}
+.show .timer,.show .chipx{background:rgba(0,0,102,.9);color:#fff;font:700 12px/1 var(--sans);padding:5px 8px;border-radius:8px;
   font-variant-numeric:tabular-nums;white-space:nowrap}
-.show .sub{padding:8px 16px 0;font-size:13.5px;color:rgba(255,255,255,.92);line-height:1.35}
-.show .all{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 16px 0;height:44px;border-radius:14px;
-  background:rgba(255,255,255,.18);font:700 14.5px/1 var(--sans);border:1.5px solid rgba(255,255,255,.5)}
+.show .sub{padding:5px 14px 0;font-size:12.5px;color:rgba(255,255,255,.92);line-height:1.3;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.show .all{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px 14px 0;height:38px;border-radius:12px;
+  background:rgba(255,255,255,.18);font:700 13.5px/1 var(--sans);border:1.5px solid rgba(255,255,255,.5)}
 .show .all svg{width:12px;height:12px}
 .promo{background:linear-gradient(140deg,var(--pa,#ff8a00),var(--pb,#ff4d1a));--ear:var(--pa,#ff8a00)}
-.sale{background:linear-gradient(140deg,#ff0066,#ff3d8b 60%,#ff6aa8);--ear:#ff0066}
+.sale{background:linear-gradient(140deg,#ff0066,#ff3d8b 60%,#ff6aa8)}
+.brandm{background:linear-gradient(140deg,#2b1a99,#000066 55%,#5a0a6e)}
 
-.rail{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 16px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 14px 2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .rail::-webkit-scrollbar{display:none}
-.pc{flex:0 0 152px;scroll-snap-align:start;scroll-margin-left:16px;background:#fff;color:var(--navy);border-radius:18px;padding:9px 9px 10px;
+.pc{flex:0 0 128px;scroll-snap-align:start;scroll-margin-left:14px;background:#fff;color:var(--navy);border-radius:15px;padding:7px 7px 8px;
   position:relative;display:flex;flex-direction:column;box-shadow:0 10px 22px -12px rgba(0,0,0,.45);transition:transform .15s}
 .pc:active{transform:scale(.97)}
-.pc .img{display:block;aspect-ratio:1/1;border-radius:12px;background:#f6f3fa center/contain no-repeat}
-.pc .badge{position:absolute;top:14px;left:14px;background:var(--pink);color:#fff;font:800 12px/1 var(--sans);padding:5px 8px;border-radius:20px;z-index:1}
-.pc .ic{position:absolute;top:11px;right:13px;font-size:17px;z-index:1}
-.pc .nm{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:500 12.5px/1.3 var(--sans);margin:8px 0 6px;min-height:33px}
+.pc .img{display:block;aspect-ratio:1/1;border-radius:10px;background:#f6f3fa center/contain no-repeat}
+.pc .badge{position:absolute;top:11px;left:11px;background:var(--pink);color:#fff;font:800 11px/1 var(--sans);padding:4px 7px;border-radius:20px;z-index:1}
+.pc .ic{position:absolute;top:9px;right:11px;font-size:15px;z-index:1}
+.pc .nm{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:500 11.5px/1.28 var(--sans);margin:6px 0 4px;min-height:30px}
 .pc .pr{margin-top:auto;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 6px}
-.pc .new{color:var(--pink);font:800 16px/1.1 var(--sans)}
-.pc .old{color:#9a96b2;font-size:12px;text-decoration:line-through}
-.pc .buy{margin-top:8px;height:32px;border-radius:10px;background:var(--navy);color:#fff;font:700 13px/32px var(--sans);text-align:center}
+.pc .new{color:var(--pink);font:800 14px/1.1 var(--sans)}
+.pc .old{color:#9a96b2;font-size:11px;text-decoration:line-through}
+.pc .buy{margin-top:6px;height:28px;border-radius:9px;background:var(--navy);color:#fff;font:700 12px/28px var(--sans);text-align:center}
 .pc.more{justify-content:center;align-items:center;text-align:center;gap:10px;background:rgba(255,255,255,.16);color:#fff;
-  border:2px dashed rgba(255,255,255,.6);box-shadow:none;font:800 15px/1.2 var(--display)}
-.pc.more .go{width:44px;height:44px}
+  border:2px dashed rgba(255,255,255,.6);box-shadow:none;font:800 13px/1.2 var(--display)}
+.pc.more .go{width:38px;height:38px}
 
 /* наш бренд DR.JOYS — блоки из его таплинка в цветах Joys Toys */
 .brand-intro{color:var(--muted);font-size:14.5px;margin:-4px 0 14px}
@@ -169,12 +167,47 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
 .aqua .drip{background:radial-gradient(circle at 40% 35%,#fff,#cfe3ff 75%)}
 @keyframes drip{0%{transform:translateY(-6px) scale(.2,.1);opacity:0}25%{transform:translateY(0) scale(.7,.6);opacity:1}
   45%{transform:translateY(2px) scale(.9,1.15)}75%{transform:translateY(34px) scale(.8,1.05);opacity:1}100%{transform:translateY(52px) scale(.6);opacity:0}}
-.drj{display:flex;align-items:center;gap:14px;background:#0d0d0d;border:1px solid rgba(255,255,255,.12);border-radius:var(--r);
-  padding:14px 14px 14px 16px;margin-bottom:30px}
+.game{background:#f1eef7;color:var(--navy)}
+.game .pic{width:46%;height:calc(100% - 76px);object-fit:contain;object-position:center 70%;
+  -webkit-mask-image:radial-gradient(75% 70% at 55% 60%,#000 60%,transparent);mask-image:radial-gradient(75% 70% at 55% 60%,#000 60%,transparent)}
+.game p{color:rgba(0,0,102,.7)}
+.fan{position:absolute;right:40px;top:22px;width:46px;height:60px;z-index:2}
+.fan i{position:absolute;inset:0;border-radius:6px;box-shadow:0 4px 10px rgba(0,0,0,.18),inset 0 0 0 2px #fff;transform-origin:50% 120%;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF0066' d='M12 21c-5.6-4.1-9.5-7.5-9.5-11.6C2.5 6.2 4.8 4 7.6 4c1.9 0 3.5 1 4.4 2.6C12.9 5 14.5 4 16.4 4c2.8 0 5.1 2.2 5.1 5.4 0 4.1-3.9 7.5-9.5 11.6Z'/%3E%3C/svg%3E") center 44%/56% no-repeat;
+  animation:fan 3.2s ease-in-out infinite}
+.fan i:nth-child(1){--a:-24deg}
+.fan i:nth-child(2){--a:0deg;animation-delay:.05s}
+.fan i:nth-child(3){--a:24deg;animation-delay:.1s}
+@keyframes fan{0%,15%,85%,100%{transform:rotate(0)}40%,65%{transform:rotate(var(--a)) translateY(-4px)}}
+.drj{background:#0d0d0d;border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:14px 14px 14px 16px;margin-bottom:30px}
+.drj .top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
 .drj img{width:58px;height:auto}
-.drj span{font-size:13.5px;color:var(--muted);line-height:1.3}
+.drj .top span{font-size:13.5px;color:var(--muted);line-height:1.3}
 .drj b{display:block;color:#fff;font:800 15px/1.2 var(--display)}
-.drj .go{margin-left:auto}
+.drj .btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.drj .btn{height:40px;font-size:13.5px}
+.drj .btn svg{width:16px;height:16px}
+
+.fast{background:linear-gradient(135deg,#1b1170,#120a52);border:1.5px solid rgba(255,0,102,.5);border-radius:var(--r);padding:14px 16px}
+.fast .fh{display:flex;align-items:center;gap:12px}
+.fast .bolt{flex:none;width:42px;height:42px;border-radius:13px;background:#ffd400;display:grid;place-items:center;font-size:22px;
+  box-shadow:0 0 0 0 rgba(255,212,0,.6);animation:zap 2.4s ease-out infinite}
+@keyframes zap{0%{box-shadow:0 0 0 0 rgba(255,212,0,.55)}70%,100%{box-shadow:0 0 0 12px rgba(255,212,0,0)}}
+.fast b{display:block;font:900 17px/1.1 var(--display)}
+.fast .fh small{display:block;color:var(--muted);font-size:13px;margin-top:3px}
+.fast .cities{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 10px}
+.fast .cities span{background:rgba(255,255,255,.1);border:1px solid var(--line);border-radius:999px;padding:5px 10px;font:600 12.5px/1 var(--sans)}
+.fast .cities span:first-child{background:var(--pink);border-color:var(--pink)}
+.fast p{font-size:12.5px;color:var(--muted);line-height:1.35}
+
+.prom-rail{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px 20px;padding:0 16px 4px;scrollbar-width:none}
+.prom-rail::-webkit-scrollbar{display:none}
+.pb{flex:0 0 232px;scroll-snap-align:start;scroll-margin-left:16px;background:#fff;color:var(--navy);border-radius:18px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .15s}
+.pb:active{transform:scale(.97)}
+.pb img{width:100%;aspect-ratio:900/760;object-fit:cover;display:block;background:#f1eef7}
+.pb span{padding:9px 11px 11px;font:700 13px/1.25 var(--sans)}
+.all-akcii{display:flex;width:100%;margin:0 0 30px}
 
 /* магазины */
 .shops{display:grid;gap:10px;margin-bottom:30px}
@@ -216,9 +249,6 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
 .js .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
 .go-shop{animation:glow 2.8s ease-in-out infinite}
 @keyframes glow{0%,100%{box-shadow:0 14px 34px -12px rgba(255,0,102,.55)}50%{box-shadow:0 16px 46px -8px rgba(255,0,102,.95)}}
-/* ушки подёргиваются, как у кошки */
-.eared::before{animation:twitch 5s ease-in-out infinite}
-@keyframes twitch{0%,86%,100%{transform:none}89%{transform:scaleY(.82) rotate(-2deg)}92%{transform:none}95%{transform:scaleY(.86) rotate(2deg)}}
 .hero .logo{animation:bob 4s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-6px) rotate(1deg)}}
 .float{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
@@ -249,12 +279,12 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
 
   <header class="hero">
     <img class="logo" src="assets/logo.png" alt="Joys Toys" width="1000" height="329">
-    <h1>Игрушки<br>для взрослых</h1>
+    <h1>Взрослые<br>тоже играют</h1>
     <span class="tag pink tilt-l">Алматы · Казахстан</span>
     <p>Два магазина в Алматы и доставка по всему Казахстану. Упакуем так, что никто не узнает, что внутри.</p>
   </header>
 
-  <a class="go-shop eared" href="https://joystoys.kz/?utm_source=taplink&utm_medium=social&utm_campaign=main">
+  <a class="go-shop" href="https://joystoys.kz/?utm_source=taplink&utm_medium=social&utm_campaign=main">
     <span class="shine" aria-hidden="true"></span>
     <span class="ico"><img src="assets/icon-180.png" alt="" width="44" height="44"></span>
     <span><b>Перейти в магазин</b><small>joystoys.kz · 2 732 товара в наличии</small></span>
@@ -265,15 +295,15 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
     <a href="#shops"><svg style="color:var(--pink)"><use href="#pin"/></svg><span>Адреса<small>2 магазина</small></span></a>
   </nav>
 
-  <section class="show promo eared" style="--pa:#ff8a00;--pb:#ff4d1a">
+  <section class="show promo" style="--pa:#ff8a00;--pb:#ff4d1a">
     <div class="head"><h2>🎃 Хэллоуин — скидки до 45%</h2><span class="timer" data-end="2026-10-31T23:59:59+05:00"></span></div>
     <p class="sub">Плётки и маски −45% · Бельё и костюмы −35% · БДСМ −35% · до 31 октября</p>
     <div class="rail"><a class="pc" href="https://joystoys.kz/product/flogger-temprature-changing-cherno-oranzhevyy?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−45%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/3649/3367464513/large_tg_1792317523_01.jpg')"></span><span class="nm">Флоггер со сменой цвета от температуры (57 см)</span><span class="pr"><span class="new">8 600 ₸</span><span class="old">15 640 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/maska-kruzhevnaya-serdtse-chernaya?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−45%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/7769/3367558745/large_tg_1792329641_01.jpg')"></span><span class="nm">Маска кружевная Сердце черная</span><span class="pr"><span class="new">850 ₸</span><span class="old">1 550 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/nabor-hvost-s-ushkami-roz?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−35%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6705/3367344689/large_tg_1792304133_01.jpg')"></span><span class="nm">Набор ушки + пробка с хвостиком, розовый</span><span class="pr"><span class="new">4 840 ₸</span><span class="old">7 450 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/naruchniki-metallicheskie-hit?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−35%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/4097/3176558593/large_изображение_2023-10-25_175523298.png')"></span><span class="nm">Наручники металлические Hit</span><span class="pr"><span class="new">2 110 ₸</span><span class="old">3 250 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/seksualnoe-zhenskoe-belie-kozhanoe-lateks-chernoe?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−35%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6049/3292444577/large_wb_275415763_01.webp')"></span><span class="nm">Сексуальное женское белье кожаное латекс Черное</span><span class="pr"><span class="new">8 440 ₸</span><span class="old">12 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/nabor-hvostushkizazhimy-cherno-bel?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−35%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1801/3367446281/large_tg_1792316095_01.jpg')"></span><span class="nm">Набор: ушки, пробка с хвостиком, ошейник и зажимы для сосков</span><span class="pr"><span class="new">7 800 ₸</span><span class="old">12 000 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/elegantnaya-bodi-portupeya-friday?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−35%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6793/3176462985/large_2.jpg')"></span><span class="nm">Элегантная боди портупея FRIDAY</span><span class="pr"><span class="new">12 200 ₸</span><span class="old">18 780 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/klyap-v-vide-kosti-chernyy?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−35%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/3377/3357969713/large_изображение_2025-09-25_195710818.png')"></span><span class="nm">Кляп в виде кости Черный</span><span class="pr"><span class="new">3 560 ₸</span><span class="old">5 490 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/chulki-s-bantikom-my56113-rozovye?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−35%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/2105/3176466489/large_изображение_2025-08-03_155349825.png')"></span><span class="nm">Чулки с бантиком My56113 (Розовые)</span><span class="pr"><span class="new">2 270 ₸</span><span class="old">3 490 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/shlepalka-derevyannaya-love-316-sm-x-57-sm?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−45%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/4729/3176616569/large_изображение_2025-12-08_164802829.png')"></span><span class="nm">Шлепалка деревянная LOVE 31,6 см x 5.7 см</span><span class="pr"><span class="new">3 290 ₸</span><span class="old">5 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/maska-kruzhevnaya-bolshaya-babochka-chernaya?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−45%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/3865/3304369945/large_фаыа.jpg')"></span><span class="nm">Маска кружевная Большая Бабочка черная</span><span class="pr"><span class="new">850 ₸</span><span class="old">1 550 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/portupeya-naruchniki?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−35%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/7249/3176602705/large_изображение_2024-12-30_165404838.png')"></span><span class="nm">Портупея Наручники</span><span class="pr"><span class="new">9 210 ₸</span><span class="old">14 170 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/seksualnoe-kruzhevnoe-tselnokroenoe-s-lepestkami-so-stalnym-koltsom-bodi?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−35%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6073/3176642489/large_изображение_2025-09-04_151859502.png')"></span><span class="nm">Сексуальное кружевное цельнокроеное с лепестками со стальным кольцом боди</span><span class="pr"><span class="new">5 840 ₸</span><span class="old">8 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/bdsm-nabor-10-predmetov-krasnyy?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−35%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1337/3176621369/large_изображение_2025-08-09_133502890.png')"></span><span class="nm">БДСМ набор, 10 предметов (Красный)</span><span class="pr"><span class="new">10 100 ₸</span><span class="old">15 550 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/gartery-iz-straz-na-nogi?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−35%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/5217/3176600673/large_Tornozeleira.jpg_q50.jpg')"></span><span class="nm">Гартеры из страз на ноги</span><span class="pr"><span class="new">3 670 ₸</span><span class="old">5 650 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/klyap-v-vide-kosti-belyy?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−35%</span><span class="ic">🎃</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/2161/3357771889/large_изображение_2026-01-15_181602830.png')"></span><span class="nm">Кляп в виде кости Белый</span><span class="pr"><span class="new">3 560 ₸</span><span class="old">5 490 ₸</span></span><span class="buy">Купить</span></a><a class="pc more" href="https://joystoys.kz/collection/halloween?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="go"><svg><use href="#arr"/></svg></span>Все товары акции (389)</a></div>
     <a class="all" href="https://joystoys.kz/collection/halloween?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo">Все товары акции (389) <svg><use href="#arr"/></svg></a>
   </section>
-  <section class="show sale eared">
+  <section class="show sale">
     <div class="head"><h2>🔥 Распродажа дня</h2><span class="timer" data-end="2026-10-30T05:42:14+05:00"></span></div>
-    <p class="sub">Каждый день новые товары со скидкой до 50% — только сутки.</p>
+    <p class="sub">Новые скидки каждый день — только сутки.</p>
     <div class="rail"><a class="pc" href="https://joystoys.kz/product/erektsionnoe-koltso-s-resnitsami-i-trubochkoy?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−40%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/5633/3263305217/large_изображение_2025-08-03_192424717.png')"></span><span class="nm">Эрекционное кольцо с ресницами и трубочкой</span><span class="pr"><span class="new">1 790 ₸</span><span class="old">2 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/bolshaya-rebristaya-analnaya-probka-s-svetlo-rozovym-kristallom?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−50%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6513/3359840625/large_изображение_2023-10-27_110039945.png')"></span><span class="nm">Большая Ребристая Анальная пробка с Светло-Розовым кристаллом</span><span class="pr"><span class="new">3 420 ₸</span><span class="old">6 850 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/s-hande-french-kiss-koltso-dlya-klitoralnnoy-stimulyatsii-shd-s376?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−27%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1457/3352495537/large_主图.jpg')"></span><span class="nm">S-Hande French Kiss Кольцо для клиторальнной стимуляции SHD-S376</span><span class="pr"><span class="new">26 460 ₸</span><span class="old">36 240 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/pretty-love-draco-sliding-skin-realistichnyy-falloimitator-bw-008116lp?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−39%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/5417/3176617257/large_изображение_2025-10-30_152834964.png')"></span><span class="nm">Pretty Love Draco Sliding skin Реалистичный Фаллоимитатор BW-008116LP</span><span class="pr"><span class="new">11 580 ₸</span><span class="old">18 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/pletka-s-metallicheskim-koltsom-30-sm-krasnaya?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−28%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/4537/3176616377/large_изображение_2025-12-08_131525750.png')"></span><span class="nm">Плетка с металлическим кольцом 30 см Красная</span><span class="pr"><span class="new">2 150 ₸</span><span class="old">2 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/masturbator-polutors-s-vibratsiey-crazy-bull-jessica-bm-009182z-1?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−26%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/5969/3176445777/large_изображение_2024-01-14_171514955.png')"></span><span class="nm">Crazy Bull Мастурбатор-полуторс с вибрацией Jessica BM-009182Z-1</span><span class="pr"><span class="new">26 050 ₸</span><span class="old">35 200 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/pretty-love-breton-masturbator-vozvratno-postupatelnyy-4-rezhima-rotatsii?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−28%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/5521/3176617361/large_изображение_2024-01-14_160958807.png')"></span><span class="nm">Pretty Love Breton Мастурбатор возвратно - поступательный, 4 режима ротации</span><span class="pr"><span class="new">38 230 ₸</span><span class="old">53 100 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/nasadka-na-palets-vvide-medvedya-2-sht?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−51%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6833/3176602289/large_изображение_2024-12-30_161031486.png')"></span><span class="nm">Насадка на палец ввиде медведя 2 шт</span><span class="pr"><span class="new">1 590 ₸</span><span class="old">3 250 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/plyushevaya-igrushka-brelok-chlenchik?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−45%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/3153/3176385617/large_изображение_2023-12-12_173722374.png')"></span><span class="nm">Плюшевая Игрушка Брелок Членчик</span><span class="pr"><span class="new">1 090 ₸</span><span class="old">1 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/erektsionnoe-koltso-s-resnitsami-2?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−34%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1377/3261695329/large_изображение_2025-08-06_183220656.png')"></span><span class="nm">Эрекционное кольцо с ресницами</span><span class="pr"><span class="new">1 650 ₸</span><span class="old">2 500 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/satisfyer-analnaya-smart-probka-s-vibratsiey-sweet-seal-black-kombinirovannaya?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−40%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/4033/3181359041/large_1__16_.jpg')"></span><span class="nm">Satisfyer Анальная смарт-пробка с вибрацией Sweet Seal Black комбинированная</span><span class="pr"><span class="new">26 580 ₸</span><span class="old">44 300 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/satisfyer-vakuumno-volnovoy-massazher-satisfyer-pro-to-go-3?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−40%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/7409/3352878321/large_1__15_.jpg')"></span><span class="nm">Satisfyer Вакуумно-волновой массажер Satisfyer Pro To Go 3</span><span class="pr"><span class="new">18 000 ₸</span><span class="old">30 000 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/analnaya-elka-na-vibropule-bi-040105-mr?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−45%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/3305/3271273705/large_elkaR_BI-040105-MR_03.jpg')"></span><span class="nm">Анальная Елка на вибропуле BI-040105-MR</span><span class="pr"><span class="new">9 180 ₸</span><span class="old">16 700 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/erektsionnoe-koltso-s-resnitsami-i-trubochkoy?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−39%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/5633/3263305217/large_изображение_2025-08-03_192424717.png')"></span><span class="nm">Эрекционное кольцо с ресницами и трубочкой</span><span class="pr"><span class="new">1 820 ₸</span><span class="old">2 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/vibroyaytso-s-pultom-mina-bi-014362w-led?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−31%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1529/3266774521/large_pl_BI014362WLED.jpg')"></span><span class="nm">Виброяйцо с пультом Mina BI-014362W-LED</span><span class="pr"><span class="new">19 870 ₸</span><span class="old">28 800 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/orgie-sedobnyy-gel-s-vibratsiey-dual-vibe-so-vkusom-kokteylya-sex-on-the-beach-15-ml?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−29%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6657/3181419009/large_изображение_2025-02-09_165556670.png')"></span><span class="nm">Orgie Съедобный гель с вибрацией DUAL VIBE! со вкусом коктейля SEX ON THE BEACH 15 мл</span><span class="pr"><span class="new">12 060 ₸</span><span class="old">16 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/zhidkiy-vibrator-intt-clit-me-high-cannabis-oil-maslo-semyan-konopli-15-ml?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−30%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/4993/3327480705/large_tg_1790591320_01.jpg')"></span><span class="nm">Жидкий вибратор intt CLIT ME HIGH CANNABIS OIL масло семян конопли 15 мл</span><span class="pr"><span class="new">9 050 ₸</span><span class="old">12 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/maska-na-glaza-krasnaya?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−36%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/4761/3176641177/large_изображение_2025-12-10_155707136.png')"></span><span class="nm">Маска на глаза Красная</span><span class="pr"><span class="new">1 590 ₸</span><span class="old">2 490 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/sm-mystery-ji-swan-roll-bag-bdsm-nabor-krasnyy?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−49%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/3601/3357847057/large_tg_1791905832_01.jpg')"></span><span class="nm">Sm Mystery Ji Swan Roll Bag Бдсм набор красный</span><span class="pr"><span class="new">18 810 ₸</span><span class="old">36 885 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/shlepalka-l-320-mm-tsvet-chyornyy-ntb-80591?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−42%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6665/3176512009/large_8068efae_98af_11e9_8127_0cc47aa8bf45_b2599aca_15be_11ea_812c_0cc47aa8bf45.jpg')"></span><span class="nm">ШЛЕПАЛКА L 320 мм, цвет чёрный NTB-80591</span><span class="pr"><span class="new">3 810 ₸</span><span class="old">6 590 ₸</span></span><span class="buy">Купить</span></a><a class="pc more" href="https://joystoys.kz/collection/rasprodazha-dnya?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="go"><svg><use href="#arr"/></svg></span>Все товары распродажи</a></div>
     <a class="all" href="https://joystoys.kz/collection/rasprodazha-dnya?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale">Все товары распродажи <svg><use href="#arr"/></svg></a>
   </section>
@@ -326,11 +356,30 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
     </article>
   </div>
 
-  <a class="drj" href="https://go.dr-joys.com/">
-    <img src="assets/drjoys-logo.svg" alt="DR.JOYS" width="58" height="44" loading="lazy">
-    <span><b>Всё о DR.JOYS</b>игра для пар, где ещё купить</span>
-    <span class="go"><svg><use href="#arr"/></svg></span>
-  </a>
+  <article class="card game">
+    <img class="pic" src="assets/game.jpg" alt="Карточная игра DR.JOYS «Обо всём открыто»" width="706" height="720" loading="lazy">
+    <span class="fan" aria-hidden="true"><i></i><i></i><i></i></span>
+    <div class="body">
+      <span class="tag pink badge tilt-l">52 вопроса</span>
+      <h3>Обо всём открыто</h3>
+      <p>Карточная игра для пар, чтобы узнать друг друга ближе. Разработана с&nbsp;психологом.</p>
+    </div>
+    <div class="btns">
+      <a class="btn navy" href="https://joystoys.kz/product/igrovye-karty-obo-vsem-otkryto?utm_source=taplink&utm_medium=social&utm_campaign=drjoys">3 990 ₸ <svg><use href="#arr"/></svg></a>
+      <a class="btn line" href="https://wa.me/77011100066?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D0%B8%D0%B3%D1%80%D1%83%20DR.JOYS%20%C2%AB%D0%9E%D0%B1%D0%BE%20%D0%B2%D1%81%D1%91%D0%BC%20%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%BE%C2%BB">WhatsApp <svg><use href="#arr"/></svg></a>
+    </div>
+  </article>
+
+  <div class="drj">
+    <div class="top">
+      <img src="assets/drjoys-logo.svg" alt="DR.JOYS" width="58" height="44" loading="lazy">
+      <span><b>Всё о DR.JOYS</b>новинки, игры и где ещё купить</span>
+    </div>
+    <div class="btns">
+      <a class="btn solid" href="https://www.instagram.com/drjoysoriginal/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Instagram</a>
+      <a class="btn line" href="https://go.dr-joys.com/">Сайт DR.JOYS <svg><use href="#arr"/></svg></a>
+    </div>
+  </div>
 
   <div class="sec" id="shops"><h2 class="st">Магазины</h2><span class="tag pink tilt-r">ежедневно 11–23</span></div>
   <div class="shops">
@@ -352,15 +401,31 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
         <a class="btn line" href="tel:+77089519479">Звонок</a>
       </div>
     </article>
+    <article class="fast">
+      <div class="fh"><span class="bolt">⚡</span><span><b>Доставка за 1 час</b><small>склады в 7 городах Казахстана</small></span></div>
+      <div class="cities"><span>Алматы</span><span>Астана</span><span>Шымкент</span><span>Караганда</span><span>Актау</span><span>Атырау</span><span>Усть-Каменогорск</span></div>
+      <p>Ищите значок «за 1 час» в карточке товара на сайте. В другие города — доставкой по Казахстану.</p>
+    </article>
   </div>
 
-  <section class="biz eared">
+  <section class="biz">
     <span class="tag tilt-l">Для бизнеса</span>
     <h3>Опт<br>и франшиза</h3>
     <p>Есть магазин или планируете открыть свой? Обсудим индивидуальные условия опта и франшизы Joys Toys — на взаимовыгодных условиях. Пишите!</p>
     <a class="btn pink" href="https://wa.me/77011244596?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B0%21%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BE%D0%BF%D1%82%D0%B0%20/%20%D1%84%D1%80%D0%B0%D0%BD%D1%88%D0%B8%D0%B7%D1%8B%20Joys%20Toys."><span><svg style="width:18px;height:18px;vertical-align:-3px"><use href="#wa"/></svg> Написать Екатерине</span><span class="who">оптовый менеджер · +7 701 124-45-96</span></a>
     <a class="btn line" href="https://joystoys.kz/page/opt?utm_source=taplink&utm_medium=social&utm_campaign=opt">Условия опта на сайте <svg><use href="#arr"/></svg></a>
   </section>
+
+  <div class="sec"><h2 class="st">Ещё акции</h2><span class="tag pink tilt-r">для тех, кто долистал</span></div>
+  <div class="prom-rail"><a class="pb" href="https://joystoys.kz/collection/tenga?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=akcii"><img src="https://cdn.insales-shop.ru/images/products/1/4169/3386167369/promo-tenga-m-10261458.jpg" alt="" loading="lazy"><span>TENGA −20% — скидка уже в цене</span></a><a class="pb" href="https://joystoys.kz/collection/analnye-probki?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=akcii"><img src="https://cdn.insales-shop.ru/images/products/1/4009/3386167209/promo-probki-m-10261458.jpg" alt="" loading="lazy"><span>Третья анальная пробка за 1 ₸</span></a><a class="pb" href="https://joystoys.kz/collection/dr-joys?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=akcii"><img src="https://cdn.insales-shop.ru/images/products/1/4073/3386167273/promo-drjoys-m-10261458.jpg" alt="" loading="lazy"><span>Четвёртая пачка Dr.JOYS за 1 ₸</span></a><a class="pb" href="https://joystoys.kz/collection/seks-igrushki-dlya-zhenschin?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=akcii"><img src="https://cdn.insales-shop.ru/images/products/1/4129/3386167329/promo-penguin-m-10261458.jpg" alt="" loading="lazy"><span>Satisfyer Penguin в подарок к девайсу от 30 000 ₸</span></a><a class="pb" href="https://joystoys.kz/page/akcii?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=akcii"><img src="https://cdn.insales-shop.ru/images/products/1/4545/3386167745/promo-otzyv-m-10261458.jpg" alt="" loading="lazy"><span>Отзыв в 2ГИС или Google — пачка Dr.JOYS в подарок</span></a></div>
+  <section class="show brandm">
+    <div class="head"><h2>Tenga — скидка на весь бренд</h2><span class="chipx">−20%</span></div>
+    <p class="sub">Цены уже со скидкой — 22 позиций бренда.</p>
+    <div class="rail"><a class="pc" href="https://joystoys.kz/product/tenga-flip-hole-masturbator?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/7113/3306232777/large_flip_hole.jpg')"></span><span class="nm">Tenga Flip Hole Мастурбатор</span><span class="pr"><span class="new">47 200 ₸</span><span class="old">59 000 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/tenga-puffy-masturbator-sugar-white?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/7185/3306232849/large_puffy.jpg')"></span><span class="nm">Tenga Puffy Мастурбатор Sugar White</span><span class="pr"><span class="new">44 800 ₸</span><span class="old">56 000 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/tenga-masturbator-spinner-dx-03-steps?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/7737/3272916537/large_0a8e5beb60f6c2a2dac2a1c222cc3edc.jpg')"></span><span class="nm">Tenga Мастурбатор Spinner DX 03 Steps</span><span class="pr"><span class="new">22 400 ₸</span><span class="old">28 000 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/tenga-masturbator-spinner-dx-01-drops?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6409/3272915209/large_31640207bccd61ba868e0cdff0cce30c.jpg')"></span><span class="nm">Tenga Мастурбатор Spinner DX 01 Drops</span><span class="pr"><span class="new">22 400 ₸</span><span class="old">28 000 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/tenga-masturbator-spinner-dx-02-bumps?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/3425/3339218273/large_tg_1790960771_01.jpg')"></span><span class="nm">Tenga Мастурбатор Spinner DX 02 Bumps</span><span class="pr"><span class="new">22 400 ₸</span><span class="old">28 000 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/masturbator-tenga-arte-drape?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1609/3338798665/large_tg_1790955786_01.jpg')"></span><span class="nm">Мастурбатор Tenga Arte Drape</span><span class="pr"><span class="new">20 800 ₸</span><span class="old">26 000 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/masturbator-tenga-arte-tweed?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/5561/3388683705/large_tg_1793115394_01.jpg')"></span><span class="nm">Мастурбатор Tenga Arte Tweed</span><span class="pr"><span class="new">20 800 ₸</span><span class="old">26 000 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/tenga-flex-masturbator-fizzy-green?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/5337/3388699865/large_tg_1793115777_01.jpg')"></span><span class="nm">TENGA FLEX  Мастурбатор Fizzy Green</span><span class="pr"><span class="new">19 200 ₸</span><span class="old">24 000 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/masturbator-tenga-spinner-hexa?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/2345/3181349161/large_tenga-spinner-masturbator-hexa_464a121fa6afd3c_500x500.jpg')"></span><span class="nm">Tenga Мастурбатор Spinner (HEXA)</span><span class="pr"><span class="new">17 590 ₸</span><span class="old">21 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/masturbator-tenga-spinner-shell?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1137/3181421681/large_11904155-1.jpg')"></span><span class="nm">Мастурбатор Tenga Spinner (SHELL)</span><span class="pr"><span class="new">17 590 ₸</span><span class="old">21 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/masturbator-tenga-spinner-pixel?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6153/3181377545/large_6031197159.jpg')"></span><span class="nm">Мастурбатор Tenga Spinner (PIXEL)</span><span class="pr"><span class="new">17 590 ₸</span><span class="old">21 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/masturbator-tenga-spinner-brick?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/4921/3359462201/large_tenga_spinner_masturbator_brick_837.jpg')"></span><span class="nm">Мастурбатор Tenga Spinner (BRICK)</span><span class="pr"><span class="new">17 590 ₸</span><span class="old">21 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/masturbator-tenga-spinner-tetra?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1713/3181364913/large_6050595241.jpg')"></span><span class="nm">Tenga Мастурбатор Spinner (TETRA)</span><span class="pr"><span class="new">17 590 ₸</span><span class="old">21 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/smazka-tenga-hole-lotion-wild-170-ml-s-mentolom-na-vodnoy-osnove?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/3537/3176615377/large_изображение_2024-03-23_153700630.png')"></span><span class="nm">Tenga Смазка Hole Lotion WILD (170 мл) с ментолом на водной основе</span><span class="pr"><span class="new">12 790 ₸</span><span class="old">15 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/lubrikant-tenga-cool-170-ml?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1073/3176612913/large_Lubrikant-Tenga-Cool-170-ml.jpg')"></span><span class="nm">Tenga Лубрикант Cool 170 мл</span><span class="pr"><span class="new">12 790 ₸</span><span class="old">15 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/smazka-tenga-hole-lotion-mild-lubricant-170-ml?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="badge">−20%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1817/3176621849/large_изображение_2024-03-23_154339097.png')"></span><span class="nm">Tenga Смазка - Hole Lotion Mild Lubricant (170 ML)</span><span class="pr"><span class="new">12 790 ₸</span><span class="old">15 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc more" href="https://joystoys.kz/collection/tenga?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand"><span class="go"><svg><use href="#arr"/></svg></span>Все товары Tenga</a></div>
+    <a class="all" href="https://joystoys.kz/collection/tenga?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=brand">Все товары Tenga <svg><use href="#arr"/></svg></a>
+  </section>
+  <a class="all-akcii btn line" href="https://joystoys.kz/page/akcii?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=akcii">Все акции и условия <svg><use href="#arr"/></svg></a>
+
 
   <a class="site" href="https://joystoys.kz/?utm_source=taplink&utm_medium=social&utm_campaign=footer">
     <img src="assets/logo.png" alt="Joys Toys" width="120" height="39" loading="lazy">
@@ -383,7 +448,7 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
     }, {threshold: 0, rootMargin: "0px 0px -8% 0px"});
-    document.querySelectorAll(".card,.duo .mini,.show,.shop,.biz,.drj,.site").forEach(function (el) { el.classList.add("reveal"); io.observe(el); });
+    document.querySelectorAll(".card,.duo .mini,.show,.shop,.fast,.biz,.drj,.site").forEach(function (el) { el.classList.add("reveal"); io.observe(el); });
     document.querySelectorAll(".tag").forEach(function (el) { el.classList.add("pop"); io.observe(el); });
   } else document.documentElement.classList.remove("js");
   var ts = document.querySelectorAll("[data-end]");

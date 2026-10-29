@@ -40,6 +40,7 @@ DRJOYS = {                    # плейсхолдер цены -> карточ�
     "P_CONDOMS": "prezervativy-drjoys-klassicheskie",
     "P_BERRY": "lubrikant-dr-joys-200-ml-klubnika",
     "P_AQUA": "lubrikant-dr-joys-200-ml-klassika",
+    "P_GAME": "igrovye-karty-obo-vsem-otkryto",
 }
 
 
@@ -133,7 +134,7 @@ def promo_sections(page):
         e = html.escape
         all_href, all_text = (allm.group(1), text(allm.group(2)).rstrip(" →")) if allm else ("/", "Все товары акции")
         out.append(
-            f'  <section class="show promo eared" style="--pa:{e(st.group(1)) if st else "#ff8a00"};--pb:{e(st.group(2)) if st else "#ff4d1a"}">\n'
+            f'  <section class="show promo" style="--pa:{e(st.group(1)) if st else "#ff8a00"};--pb:{e(st.group(2)) if st else "#ff4d1a"}">\n'
             f'    <div class="head"><h2>{e(text(title.group(1)))}</h2>'
             + (f'<span class="timer" data-end="{e(iso_kz(end.group(1)))}"></span>' if end else "") + "</div>\n"
             + (f'    <p class="sub">{e(text(sub.group(1)))}</p>\n' if sub else "")
@@ -153,13 +154,52 @@ def sale_section(page):
     allm = re.search(r'<a class="jt-sale__all" href="([^"]+)"', block)
     all_href = allm.group(1) if allm else "/collection/rasprodazha-dnya"
     e = html.escape
-    return ('  <section class="show sale eared">\n'
+    return ('  <section class="show sale">\n'
             '    <div class="head"><h2>🔥 Распродажа дня</h2>'
             + (f'<span class="timer" data-end="{e(iso_kz(end.group(1)))}"></span>' if end else "") + "</div>\n"
-            '    <p class="sub">Каждый день новые товары со скидкой до 50% — только сутки.</p>\n'
+            '    <p class="sub">Новые скидки каждый день — только сутки.</p>\n'
             "    " + rail(items, all_href, "Все товары распродажи", "sale") + "\n"
             f'    <a class="all" href="{e(link(all_href, "sale"))}">Все товары распродажи <svg><use href="#arr"/></svg></a>\n'
             "  </section>")
+
+
+def extra_section(page):
+    """«Ещё акции» в конце страницы: карусель «Акции» (JT-PROMO) и «Бренд месяца» (JT-BRANDPROMO) с главной.
+    Сменились акции на сайте — сменятся и здесь; нет ни одной — раздела нет."""
+    e = html.escape
+    parts = []
+    block = cut(page, "<!-- JT-PROMO START -->", "<!-- JT-PROMO END -->")
+    tiles = []
+    for m in re.finditer(r'<a class="jt-promo__card" href="([^"]+)">(.*?)</a>', block, re.S):
+        inner = m.group(2)
+        img = re.search(r'<source[^>]+srcset="([^"]+)"', inner) or re.search(r'<img[^>]+src="([^"]+)"', inner)
+        cap = text((re.search(r'jt-promo__cap">(.*?)</span>', inner) or [None, ""])[1])
+        if img and cap:
+            tiles.append(f'<a class="pb" href="{e(link(m.group(1), "akcii"))}"><img src="{e(img.group(1))}" alt="" loading="lazy">'
+                         f'<span>{e(cap)}</span></a>')
+    if tiles:
+        parts.append('  <div class="prom-rail">' + "".join(tiles) + "</div>")
+    b = cut(page, "<!-- JT-BRANDPROMO START -->", "<!-- JT-BRANDPROMO END -->")
+    items = cards(b, "bsale")
+    title = re.search(r'<h2 class="jt-nov__title">(.*?)</h2>', b, re.S)
+    if items and title:
+        chip = re.search(r'jt-bsale__chip">(.*?)</span>', b)
+        sub = re.search(r'<p class="jt-bsale__sub">(.*?)</p>', b, re.S)
+        allm = re.search(r'<a class="jt-nov__all" href="([^"]+)">(.*?)</a>', b, re.S)
+        all_href, all_text = (allm.group(1), text(allm.group(2)).rstrip(" →")) if allm else ("/page/akcii", "Все товары")
+        parts.append(
+            '  <section class="show brandm">\n'
+            f'    <div class="head"><h2>{e(text(title.group(1)))}</h2>'
+            + (f'<span class="chipx">{e(text(chip.group(1)))}</span>' if chip else "") + "</div>\n"
+            + (f'    <p class="sub">{e(text(sub.group(1)))}</p>\n' if sub else "")
+            + "    " + rail(items, all_href, all_text, "brand") + "\n"
+            f'    <a class="all" href="{e(link(all_href, "brand"))}">{e(all_text)} <svg><use href="#arr"/></svg></a>\n'
+            "  </section>")
+    if not parts:
+        return ""
+    return ('  <div class="sec"><h2 class="st">Ещё акции</h2><span class="tag pink tilt-r">для тех, кто долистал</span></div>\n'
+            + "\n".join(parts) + "\n"
+            f'  <a class="all-akcii btn line" href="{e(link("/page/akcii", "akcii"))}">Все акции и условия <svg><use href="#arr"/></svg></a>\n')
 
 
 def price(perm):
@@ -177,14 +217,15 @@ def main():
     page = get(SITE + "/")
     if "JT-SALEDAY" not in page and "JT-PROMOSHOW" not in page:
         sys.exit("ABORT: на главной нет витрин — docs/ не трогаю")
-    promo, sale = promo_sections(page), sale_section(page)
+    promo, sale, extra = promo_sections(page), sale_section(page), extra_section(page)
     total = re.search(r'"total":(\d+)', page)
     n = int(total.group(1)) if total else 0
     vals = {
-        "BASE": BASE, "SITE": SITE, "UTM": UTM, "PROMO": promo, "SALE": sale,
+        "BASE": BASE, "SITE": SITE, "UTM": UTM, "PROMO": promo, "SALE": sale, "EXTRA": extra,
         "TOTAL": f"{n:,}".replace(",", " ") + " " + plural(n) if n else "тысячи товаров",
         "WA_SHOP": wa(WA_SHOP, "Здравствуйте! Пишу из инстаграма Joys Toys. Хочу заказать "),
         "WA_NEON": wa(WA_SHOP, "Здравствуйте! Хочу заказать неоновый лубрикант DR.JOYS"),
+        "WA_GAME": wa(WA_SHOP, "Здравствуйте! Хочу заказать игру DR.JOYS «Обо всём открыто»"),
         "WA_KATYA": wa(WA_KATYA, "Здравствуйте, Екатерина! Пишу по поводу опта / франшизы Joys Toys."),
     }
     vals.update({k: price(perm) for k, perm in DRJOYS.items()})
@@ -200,7 +241,9 @@ def main():
     (DOCS / "CNAME").write_text(BASE.split("//")[1] + "\n")
     (DOCS / ".nojekyll").write_text("")
     promos, tiles = promo.count('class="show promo'), out.count('class="pc"')
-    print(f"собрано: акций {promos}, распродажа {'есть' if sale else 'нет'}, карточек {tiles}, "
+    pbs = extra.count('class="pb"')
+    print(f"собрано: акций {promos}, распродажа {'есть' if sale else 'нет'}, ещё акций {pbs} + "
+          f"бренд месяца {'есть' if 'brandm' in extra else 'нет'}, карточек {tiles}, "
           f"товаров в наличии {n}; " + ", ".join(f"{k}={vals[k]}" for k in DRJOYS))
 
 
