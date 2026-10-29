@@ -38,9 +38,6 @@ WA_KATYA = "77011244596"      # Екатерина, оптовый менедж�
 DRJOYS = {                    # плейсхолдер цены -> карточка на сайте
     "P_NEON": "lubrikant-svetyaschiysya-neonovyy-100-ml-dr-joys",
     "P_CONDOMS": "prezervativy-drjoys-klassicheskie",
-    "P_BERRY": "lubrikant-dr-joys-200-ml-klubnika",
-    "P_AQUA": "lubrikant-dr-joys-200-ml-klassika",
-    "P_GAME": "igrovye-karty-obo-vsem-otkryto",
 }
 
 
@@ -225,7 +222,6 @@ def main():
         "TOTAL": f"{n:,}".replace(",", " ") + " " + plural(n) if n else "тысячи товаров",
         "WA_SHOP": wa(WA_SHOP, "Здравствуйте! Пишу из инстаграма Joys Toys. Хочу заказать "),
         "WA_NEON": wa(WA_SHOP, "Здравствуйте! Хочу заказать неоновый лубрикант DR.JOYS"),
-        "WA_GAME": wa(WA_SHOP, "Здравствуйте! Хочу заказать игру DR.JOYS «Обо всём открыто»"),
         "WA_KATYA": wa(WA_KATYA, "Здравствуйте, Екатерина! Пишу по поводу опта / франшизы Joys Toys."),
     }
     vals.update({k: price(perm) for k, perm in DRJOYS.items()})
