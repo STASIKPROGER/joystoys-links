@@ -78,7 +78,9 @@ def cards(block, prefix):
     out = []
     for m in re.finditer(r'<a class="jt-(?:nov|sale)__card" href="([^"]+)">(.*?)</a>', block, re.S):
         href, inner = m.group(1), m.group(2)
-        img = re.search(r"background-image:url\('([^']+)'\)", inner)
+        # фото плитки: на сайте с 31.10.2026 почти везде ленивое (data-jt-bg — ставит JT-LAZYBG при прокрутке),
+        # а где-то ещё прямым фоном — берём любое
+        img = re.search(r"background-image:url\('([^']+)'\)", inner) or re.search(r'data-jt-bg="([^"]+)"', inner)
         new = re.search(rf'class="jt-{prefix}__new">(.*?)</span>', inner)
         old = re.search(rf'class="jt-{prefix}__old">(.*?)</span>', inner)
         out.append({
