@@ -70,7 +70,23 @@ def iso_kz(s):
 
 def cut(page, start, end):
     i, j = page.find(start), page.find(end)
-    return page[i:j] if 0 <= i < j else ""
+    block = page[i:j] if 0 <= i < j else ""
+    return unpack(block) or block
+
+
+def unpack(block):
+    """С 23.11.2026 сайт (JT-DEFER) отдаёт блоки главной не HTML, а скриптом jt_f_<блок>_N.js: внутри строка
+    var H="<html блока>". Достаём её — витрины те же, что видит покупатель. Не вышло — пусто (блок пропустится)."""
+    m = re.search(r'<script src="(https://[^"]+/jt_f_\w+\.js)"', block)
+    if not m:
+        return ""
+    try:
+        js = get(m.group(1))
+        k = js.index('var H="') + len("var H=")
+        return json.JSONDecoder().raw_decode(js, k)[0]
+    except Exception as ex:
+        print(f"  ! блок {m.group(1).rsplit('/', 1)[-1]}: {type(ex).__name__}", file=sys.stderr)
+        return ""
 
 
 def cards(block, prefix):
@@ -202,10 +218,11 @@ def extra_section(page):
 
 
 # Чёрная пятница (Штаб 24.11.2026): первая кнопка, выше «В магазин», только 24–30.11 по Алматы.
-# N в «до −N%» — самая большая скидка среди товаров раздела в наличии (цена против зачёркнутой), считается при каждой сборке.
+# N в «до −N%» — 70, как во всех материалах ЧП; если в разделе в наличии нет скидки ≥70% — самая большая, что есть (проверка при каждой сборке).
 ALMATY = datetime.timezone(datetime.timedelta(hours=5))
 BF_FROM = datetime.datetime(2026, 11, 24, tzinfo=ALMATY)
 BF_TO = datetime.datetime(2026, 12, 1, tzinfo=ALMATY)
+BF_PROMISE = 70   # Штаб 24.11: «до −70%», как баннер и пост в Google Картах; −79% у кабеля Gvibe — не обещание. Меньше в наличии — пишем сколько есть
 BF_URL = SITE + "/collection/black-friday?utm_source=instagram&utm_medium=bio&utm_campaign=bf_carousel"
 
 
@@ -234,6 +251,7 @@ def bf_button(now=None):
     except Exception as ex:
         print(f"  ! скидки Чёрной пятницы: {type(ex).__name__}", file=sys.stderr)
         n = 0
+    n = min(n, BF_PROMISE)
     title = f"Чёрная пятница — до −{n}%" if n >= 10 else "Чёрная пятница"
     e = html.escape
     out = (f'  <a class="bf" href="{e(BF_URL)}" data-from="{BF_FROM.isoformat()}" data-to="{BF_TO.isoformat()}">\n'
