@@ -53,6 +53,19 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
 .hero .tag{margin-top:12px;font-size:14px}
 .hero p{color:var(--muted);margin:18px auto 0;max-width:340px;font-size:15.5px}
 
+/* Чёрная пятница 24–30.11.2026 (Штаб 24.11): первая кнопка, выше «В магазин». Собирает build.py только в эти дни,
+   JS прячет вне окна по часам телефона — 01.12 00:00 по Алматы уходит сама, даже если сборка встала */
+.bf{display:flex;align-items:center;gap:14px;background:#000;color:#fff;border-radius:var(--r);padding:16px;margin-bottom:14px;
+  position:relative;border:2px solid #ffe600;box-shadow:0 0 0 3px var(--pink),0 14px 34px -10px rgba(255,230,0,.55);transition:transform .15s}
+.bf:active{transform:scale(.98)}
+.bf .pct{flex:none;width:56px;height:56px;border-radius:18px;background:#ffe600;color:#000;display:grid;place-items:center;
+  font:900 17px/1 var(--display);letter-spacing:-.03em;transform:rotate(-4deg)}
+.bf b{display:block;font:900 18px/1.05 var(--display);text-transform:uppercase;color:#ffe600}
+.bf small{display:block;font-size:13.5px;color:rgba(255,255,255,.88);margin-top:5px;line-height:1.3}
+.bf .go{margin-left:auto;color:#ffe600}
+.bf .go svg{animation:nudge 1.9s ease-in-out infinite}
+.bf.off{display:none}
+
 /* главная кнопка — в магазин */
 .go-shop{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,var(--pink),#ff2d82);border-radius:var(--r);
   padding:16px;position:relative;overflow:visible;--ear:#ff1a75;box-shadow:0 14px 34px -12px rgba(255,0,102,.75);transition:transform .15s}
@@ -284,6 +297,12 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
     <p>Два магазина в Алматы и доставка по всему Казахстану. Упакуем так, что никто не узнает, что внутри.</p>
   </header>
 
+  <a class="bf" href="https://joystoys.kz/collection/black-friday?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=bf_carousel" data-from="2026-11-24T00:00:00+05:00" data-to="2026-12-01T00:00:00+05:00">
+    <span class="shine" aria-hidden="true"></span>
+    <span class="pct">−70%</span>
+    <span><b>Чёрная пятница — до −70%</b><small>только до 30 ноября</small></span>
+    <span class="go"><svg><use href="#arr"/></svg></span>
+  </a>
   <a class="go-shop" href="https://joystoys.kz/?utm_source=taplink&utm_medium=social&utm_campaign=main">
     <span class="shine" aria-hidden="true"></span>
     <span class="ico"><img src="assets/icon-180.png" alt="" width="44" height="44"></span>
@@ -295,7 +314,12 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
     <a href="#shops"><svg style="color:var(--pink)"><use href="#pin"/></svg><span>Адреса<small>2 магазина</small></span></a>
   </nav>
 
-
+  <section class="show promo" style="--pa:#1a1424;--pb:#4a2a5e">
+    <div class="head"><h2>🖤 Чёрная пятница — скидки до 70%</h2><span class="timer" data-end="2026-11-30T23:59:59+05:00"></span></div>
+    <p class="sub">Скидки до 70% · Премиум-бренды тоже · Только 7 дней · до 30 ноября</p>
+    <div class="rail"><a class="pc" href="https://joystoys.kz/product/pretty-love-lynn-analnyy-stimulyator-elochka-s-vibratsiey?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−30%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/2593/3176647201/large_изображение_2024-01-14_145932400.png')"></span><span class="nm">Pretty Love Lynn Анальный стимулятор-елочка с вибрацией</span><span class="pr"><span class="new">12 940 ₸</span><span class="old">18 490 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/crazy-bull-luna-masturbator-bm-009244z-1?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−42%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/3545/3273338329/large_lb_BM-009244Z-_1.jpg')"></span><span class="nm">Crazy Bull Luna Мастурбатор BM-009244Z-1</span><span class="pr"><span class="new">22 150 ₸</span><span class="old">38 200 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/chulki-beileisi-2066-1-uvelichennyy-razmer-krasnye?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−30%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6569/3355629993/large_tg_1791881836_01.jpg')"></span><span class="nm">Красные чулки с увеличенной сеткой Beileisi</span><span class="pr"><span class="new">2 440 ₸</span><span class="old">3 490 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/analnaya-probka-na-vibropule-bi-040107-mr?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−60%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1217/3360072897/large_lb_BI-040107_9.jpg')"></span><span class="nm">Анальная пробка на вибропуле BI-040107-MR</span><span class="pr"><span class="new">5 360 ₸</span><span class="old">13 500 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/vibrator-krolik-bw-500109?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−60%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/5657/3266770457/large_pl_BW500109.jpg')"></span><span class="nm">Вибратор Кролик BW-500109</span><span class="pr"><span class="new">16 070 ₸</span><span class="old">40 200 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/pretty-love-victoria-masturbator?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−30%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/673/3384033953/large_web_1862769937_1.jpg')"></span><span class="nm">Pretty Love Victoria Мастурбатор</span><span class="pr"><span class="new">8 740 ₸</span><span class="old">12 490 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/igra-dlya-par-novyy-god-rolevye-igry-novogodnyaya-10-kart-18?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−71%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/7497/3275144521/large_sl_7666217_1.jpg')"></span><span class="nm">Игра для пар «Новый год: Ролевые игры», новогодняя, 10 карт, 18+</span><span class="pr"><span class="new">290 ₸</span><span class="old">990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/klyap-otkrytyy-chernyy-2?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−70%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/105/3261694057/large_изображение_2026-01-15_190153208.png')"></span><span class="nm">Кляп открытый черный</span><span class="pr"><span class="new">1 710 ₸</span><span class="old">5 720 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/fanty-dlya-vzroslyh-zazhigatelnyy-devichnik-20-kart-18?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−71%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/769/3296617217/large_wb_318008503_01.webp')"></span><span class="nm">Фанты для взрослых «Зажигательный девичник», 20 карт, 18+</span><span class="pr"><span class="new">350 ₸</span><span class="old">1 190 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/analnaya-probka-s-vibratsiey-bi-040183?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−60%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6145/3266770945/large_pl_BI040183.jpg')"></span><span class="nm">Анальная пробка с вибрацией BI-040183</span><span class="pr"><span class="new">6 560 ₸</span><span class="old">16 500 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/uretralnyy-stimulyator-metall-ld-048-175?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−68%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/8089/3176562585/large_изображение_2025-11-17_124723889.png')"></span><span class="nm">Уретральный Стимулятор Металл LD-048 17,5</span><span class="pr"><span class="new">2 230 ₸</span><span class="old">6 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/plet-iz-verevki-s-metallicheskim-koltsom-60-sm?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−60%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/3705/3176615545/large_изображение_2025-12-10_145124883.png')"></span><span class="nm">Плеть из Веревки с металлическим кольцом 60 см</span><span class="pr"><span class="new">2 690 ₸</span><span class="old">6 800 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/vakuumnyy-stimulyator-trubka-pipe-mc68-bi-300142?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−60%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/4865/3328094977/large_tg_1790611063_01.jpg')"></span><span class="nm">Вакуумный стимулятор трубка Pipe MC68 BI-300142</span><span class="pr"><span class="new">5 540 ₸</span><span class="old">13 900 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/vibrator-s-friktsiyami-bi-014595w-mr?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−60%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/665/3327926937/large_tg_1790606419_01.jpg')"></span><span class="nm">Вибратор с фрикциями и пультом от MR.PLAY</span><span class="pr"><span class="new">13 920 ₸</span><span class="old">34 900 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/chulki-beileisi-2066-telesnye?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−45%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1833/3355723561/large_tg_1791884408_01.jpg')"></span><span class="nm">Beileisi Чулки 2066 (Телесные)</span><span class="pr"><span class="new">1 910 ₸</span><span class="old">3 490 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/maska-golova-krolika-s-shipami-chernaya?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="badge">−68%</span><span class="ic">🖤</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/3737/3176615577/large_изображение_2025-12-08_162656658.png')"></span><span class="nm">Маска голова Кролика с шипами Черная</span><span class="pr"><span class="new">7 010 ₸</span><span class="old">21 990 ₸</span></span><span class="buy">Купить</span></a><a class="pc more" href="https://joystoys.kz/collection/black-friday?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo"><span class="go"><svg><use href="#arr"/></svg></span>Все товары акции (468)</a></div>
+    <a class="all" href="https://joystoys.kz/collection/black-friday?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=promo">Все товары акции (468) <svg><use href="#arr"/></svg></a>
+  </section>
 
   <div class="sec" id="shops"><h2 class="st">Магазины</h2><span class="tag pink tilt-r">ежедневно 11–23</span></div>
   <div class="shops">
@@ -319,7 +343,12 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
     </article>
   </div>
 
-
+  <section class="show sale">
+    <div class="head"><h2>🔥 Распродажа дня</h2><span class="timer" data-end="2026-11-25T05:45:31+05:00"></span></div>
+    <p class="sub">Новые скидки каждый день — только сутки.</p>
+    <div class="rail"><a class="pc" href="https://joystoys.kz/product/satisfyer-tri-ball-1-multivibrator-malinovyy?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−55%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/6241/3353139297/large_1__19_.jpg')"></span><span class="nm">Satisfyer Tri Ball 1 Мультивибратор ( Малиновый)</span><span class="pr"><span class="new">13 090 ₸</span><span class="old">29 100 ₸</span></span><span class="buy">Купить</span></a><a class="pc" href="https://joystoys.kz/product/verevka-dlya-svyazyvaniya-10m?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="badge">−56%</span><span class="img" style="background-image:url('https://cdn.insales-shop.ru/images/products/1/1433/3176637849/large_изображение_2024-03-20_100919301.png')"></span><span class="nm">Веревка для связывания (10м)</span><span class="pr"><span class="new">3 300 ₸</span><span class="old">7 500 ₸</span></span><span class="buy">Купить</span></a><a class="pc more" href="https://joystoys.kz/collection/rasprodazha-dnya?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale"><span class="go"><svg><use href="#arr"/></svg></span>Все товары распродажи</a></div>
+    <a class="all" href="https://joystoys.kz/collection/rasprodazha-dnya?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=sale">Все товары распродажи <svg><use href="#arr"/></svg></a>
+  </section>
 
   <article class="fast">
     <div class="fh"><span class="bolt">⚡</span><span><b>Доставка за 1 час</b><small>склады в 7 городах Казахстана</small></span></div>
@@ -376,6 +405,9 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
     <a class="btn line" href="https://joystoys.kz/page/opt?utm_source=taplink&utm_medium=social&utm_campaign=opt">Условия опта на сайте <svg><use href="#arr"/></svg></a>
   </section>
 
+  <div class="sec"><h2 class="st">Ещё акции</h2><span class="tag pink tilt-r">для тех, кто долистал</span></div>
+  <div class="prom-rail"><a class="pb" href="https://joystoys.kz/collection/analnye-probki?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=akcii"><img src="https://cdn.insales-shop.ru/images/products/1/4009/3386167209/promo-probki-m-10261458.jpg" alt="" loading="lazy"><span>Третья анальная пробка за 1 ₸</span></a><a class="pb" href="https://joystoys.kz/collection/dr-joys?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=akcii"><img src="https://cdn.insales-shop.ru/images/products/1/4073/3386167273/promo-drjoys-m-10261458.jpg" alt="" loading="lazy"><span>Четвёртая пачка Dr.JOYS за 1 ₸</span></a><a class="pb" href="https://joystoys.kz/page/akcii?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=akcii"><img src="https://cdn.insales-shop.ru/images/products/1/4545/3386167745/promo-otzyv-m-10261458.jpg" alt="" loading="lazy"><span>Отзыв в 2ГИС или Google — пачка Dr.JOYS в подарок</span></a></div>
+  <a class="all-akcii btn line" href="https://joystoys.kz/page/akcii?utm_source=taplink&amp;utm_medium=social&amp;utm_campaign=akcii">Все акции и условия <svg><use href="#arr"/></svg></a>
 
 
   <a class="site" href="https://joystoys.kz/?utm_source=taplink&utm_medium=social&utm_campaign=footer">
@@ -392,6 +424,14 @@ a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
 
   <p class="foot"><b>18+</b>Товары для взрослых · © Joys Toys</p>
 </main>
+<script>
+// Чёрная пятница: кнопка только с data-from до data-to (по Алматы), иначе прячем
+document.querySelectorAll(".bf[data-to]").forEach(function (a) {
+  var t = Date.now(), f = Date.parse(a.getAttribute("data-from")), e = Date.parse(a.getAttribute("data-to"));
+  if (!(t >= f && t < e)) a.classList.add("off");
+  else setTimeout(function () { a.classList.add("off"); }, Math.min(e - t, 2147483647));
+});
+</script>
 <script>
 // WhatsApp пополам между точками, как на сайте (JT-MGR, Стас 26.10.2026): при первом заходе выпадает
 // Байтурсынова или Кунаева и запоминается на год. Сайту передаём ?jt_mgr — там будет тот же менеджер
