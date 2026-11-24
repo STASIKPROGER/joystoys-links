@@ -70,7 +70,23 @@ def iso_kz(s):
 
 def cut(page, start, end):
     i, j = page.find(start), page.find(end)
-    return page[i:j] if 0 <= i < j else ""
+    block = page[i:j] if 0 <= i < j else ""
+    return unpack(block) or block
+
+
+def unpack(block):
+    """С 23.11.2026 сайт (JT-DEFER) отдаёт блоки главной не HTML, а скриптом jt_f_<блок>_N.js: внутри строка
+    var H="<html блока>". Достаём её — витрины те же, что видит покупатель. Не вышло — пусто (блок пропустится)."""
+    m = re.search(r'<script src="(https://[^"]+/jt_f_\w+\.js)"', block)
+    if not m:
+        return ""
+    try:
+        js = get(m.group(1))
+        k = js.index('var H="') + len("var H=")
+        return json.JSONDecoder().raw_decode(js, k)[0]
+    except Exception as ex:
+        print(f"  ! блок {m.group(1).rsplit('/', 1)[-1]}: {type(ex).__name__}", file=sys.stderr)
+        return ""
 
 
 def cards(block, prefix):
@@ -201,6 +217,52 @@ def extra_section(page):
             f'  <a class="all-akcii btn line" href="{e(link("/page/akcii", "akcii"))}">Все акции и условия <svg><use href="#arr"/></svg></a>\n')
 
 
+# Чёрная пятница (Штаб 24.11.2026): первая кнопка, выше «В магазин», только 24–30.11 по Алматы.
+# N в «до −N%» — 70, как во всех материалах ЧП; если в разделе в наличии нет скидки ≥70% — самая большая, что есть (проверка при каждой сборке).
+ALMATY = datetime.timezone(datetime.timedelta(hours=5))
+BF_FROM = datetime.datetime(2026, 11, 24, tzinfo=ALMATY)
+BF_TO = datetime.datetime(2026, 12, 1, tzinfo=ALMATY)
+BF_PROMISE = 70   # Штаб 24.11: «до −70%», как баннер и пост в Google Картах; −79% у кабеля Gvibe — не обещание. Меньше в наличии — пишем сколько есть
+BF_URL = SITE + "/collection/black-friday?utm_source=instagram&utm_medium=bio&utm_campaign=bf_carousel"
+
+
+def bf_max_discount():
+    best, page = 0, 1
+    while page <= 30:
+        d = json.loads(get(f"{SITE}/collection/black-friday.json?page={page}&page_size=100"))
+        ps = d.get("products") or []
+        if not ps:
+            break
+        for pr in ps:
+            for v in pr.get("variants") or []:
+                cur, old = float(v.get("price") or 0), float(v.get("old_price") or 0)
+                if (v.get("quantity") or 0) > 0 and old > cur > 0:
+                    best = max(best, int((1 - cur / old) * 100))
+        page += 1
+    return best
+
+
+def bf_button(now=None):
+    now = now or datetime.datetime.now(ALMATY)
+    if not BF_FROM <= now < BF_TO:
+        return "", "нет (не 24–30.11)"
+    try:
+        n = bf_max_discount()
+    except Exception as ex:
+        print(f"  ! скидки Чёрной пятницы: {type(ex).__name__}", file=sys.stderr)
+        n = 0
+    n = min(n, BF_PROMISE)
+    title = f"Чёрная пятница — до −{n}%" if n >= 10 else "Чёрная пятница"
+    e = html.escape
+    out = (f'  <a class="bf" href="{e(BF_URL)}" data-from="{BF_FROM.isoformat()}" data-to="{BF_TO.isoformat()}">\n'
+           '    <span class="shine" aria-hidden="true"></span>\n'
+           f'    <span class="pct">{"−" + str(n) + "%" if n >= 10 else "BF"}</span>\n'
+           f'    <span><b>{e(title)}</b><small>только до 30 ноября</small></span>\n'
+           '    <span class="go"><svg><use href="#arr"/></svg></span>\n'
+           '  </a>\n')
+    return out, f"есть, до −{n}%" if n >= 10 else "есть, без цифры"
+
+
 def price(perm):
     try:
         d = json.loads(get(f"{SITE}/product/{perm}.json"))
@@ -217,10 +279,11 @@ def main():
     if "JT-SALEDAY" not in page and "JT-PROMOSHOW" not in page:
         sys.exit("ABORT: на главной нет витрин — docs/ не трогаю")
     promo, sale, extra = promo_sections(page), sale_section(page), extra_section(page)
+    bf, bf_note = bf_button()
     total = re.search(r'"total":(\d+)', page)
     n = int(total.group(1)) if total else 0
     vals = {
-        "BASE": BASE, "SITE": SITE, "UTM": UTM, "PROMO": promo, "SALE": sale, "EXTRA": extra,
+        "BASE": BASE, "SITE": SITE, "UTM": UTM, "BF": bf, "PROMO": promo, "SALE": sale, "EXTRA": extra,
         "TOTAL": f"{n:,}".replace(",", " ") + " " + plural(n) if n else "тысячи товаров",
         "WA_SHOP": wa(WA_SHOP, "Здравствуйте! Пишу из инстаграма Joys Toys. Хочу заказать "),
         "WA_NEON": wa(WA_SHOP, "Здравствуйте! Хочу заказать неоновый лубрикант DR.JOYS"),
@@ -240,7 +303,7 @@ def main():
     (DOCS / ".nojekyll").write_text("")
     promos, tiles = promo.count('class="show promo'), out.count('class="pc"')
     pbs = extra.count('class="pb"')
-    print(f"собрано: акций {promos}, распродажа {'есть' if sale else 'нет'}, ещё акций {pbs} + "
+    print(f"собрано: чёрная пятница {bf_note}, акций {promos}, распродажа {'есть' if sale else 'нет'}, ещё акций {pbs} + "
           f"бренд месяца {'есть' if 'brandm' in extra else 'нет'}, карточек {tiles}, "
           f"товаров в наличии {n}; " + ", ".join(f"{k}={vals[k]}" for k in DRJOYS))
 
